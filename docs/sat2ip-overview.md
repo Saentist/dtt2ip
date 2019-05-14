@@ -7,6 +7,7 @@ SAT>IP specifies a communication protocol. SAT>IP is not a device specification.
 The SAT>IP protocol distinguishes between SAT>IP clients and SAT>IP servers. Actual devices may be clients or servers or both depending on their feature set. 
 
 ![alt text][figure1]
+
 [figure1]:https://github.com/ebu/dtt2ip/blob/master/docs/images/figure1.png
 
 SAT>IP Clients 
@@ -26,6 +27,7 @@ The SAT>IP protocol makes use of:
 SAT>IP uses a subset of the UPnP/DLNA architecture and protocols [1] [2] and SAT>IP devices can be extended to also become DLNA devices. As an example a SAT>IP client could access live media streams through the SAT>IP protocol and access recorded media streams through DLNA. 
 
 ![alt text][figure2]
+
 [figure2]:https://github.com/ebu/dtt2ip/blob/master/docs/images/figure2.png
 
 SAT>IP devices successively go through the following phases: Addressing, Discovery, Description, Control and finally Media Transport. 
