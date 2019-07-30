@@ -5,67 +5,67 @@ if [ "$(id -u)" != "0" ]; then
 	exit 1
 fi
 
-echo Enter Github username
-read USERNAME
-if [[ ! -n "$USERNAME" ]]; then
-	echo "Sorry you did not enter a username"
-	exit 1
-fi
+# echo Enter Github username
+# read USERNAME
+# if [[ ! -n "$USERNAME" ]]; then
+#	echo "Sorry you did not enter a username"
+#	exit 1
+# fi
 
-echo Enter Github password
-read -s -p Password: PASSWORD
-if [[ ! -n "$PASSWORD" ]]; then
-	echo "Sorry you did not enter a password"
-	exit 1
-fi
+# echo Enter Github password
+# read -s -p Password: PASSWORD
+# if [[ ! -n "$PASSWORD" ]]; then
+# 	echo "Sorry you did not enter a password"
+# 	exit 1
+# fi
 
 # Update command
-echo ALEX -------------------------- update
+echo -------------------------- update
 sleep 1
 apt-get update -y
 
 # Upgrade command
-echo ALEX -------------------------- upgrade
+echo -------------------------- upgrade
 sleep 1
 apt-get upgrade -y
 
 # FTP command
-echo ALEX -------------------------- ftp
+echo Install -------------------------- ftp
 sleep 1
 apt-get install ftp -y
 
 # Python command
-echo ALEX -------------------------- python
+echo Install -------------------------- python
 sleep 1
 apt-get install python -y 
 
 # Python-netifaces command
-echo ALEX -------------------------- python-netifaces
+echo Install -------------------------- python-netifaces
 sleep 1
 apt-get install python-netifaces -y 
 
 # Dvblast command
-echo ALEX -------------------------- dvblast
+echo Install -------------------------- dvblast
 sleep 1
 apt-get install dvblast -y 
 
 # W-SCAN command
-echo ALEX -------------------------- w-scan
+echo Install -------------------------- w-scan
 sleep 1
 apt-get install w-scan -y
 
 # Apache2 command
-echo ALEX -------------------------- apache2
+echo Install -------------------------- apache2
 sleep 1
 apt-get install apache2 -y
 
 # Avahi-daemon command
-echo ALEX -------------------------- avahi-daemon
+echo Install -------------------------- avahi-daemon
 sleep 1
 apt-get install avahi-daemon -y
 
 # Gi command
-echo ALEX -------------------------- git
+echo Install -------------------------- git
 sleep 1
 apt-get install git -y
 
@@ -77,15 +77,16 @@ sed "s/80/8081/g"  $PORTS > /etc/apache2/ports.new.conf
 mv /etc/apache2/ports.new.conf $PORTS
 service apache2 restart
 {
-	echo ALEX ------------------------- old_index
+	echo Replace ------------------------- old_index
 	mv /var/www/html/index.html /var/www/html/old_index.html
 } || {
-	echo ALEX -------------------------- old_index2
+	echo Replace -------------------------- old_index2
 	mv /var/www/index.html /var/www/old_index2.html
 }
 
 # Get the source code from github
-git clone -b develop https://$USERNAME:$PASSWORD@github.com/ebu/dtt2ip.git
+#git clone -b develop https://$USERNAME:$PASSWORD@github.com/ebu/dtt2ip.git
+git clone -b develop https://github.com/Saentist/dtt2ip.git
 
 # Copy firmware to /lib/firmware
 cp dvb-usb-af9015.fw /lib/firmware/
